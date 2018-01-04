@@ -1,0 +1,93 @@
+#Tablature for tabToNotes.py by Alejandro Gallo (cc)
+#Tablature Source:	http://www.songsterr.com/a/wsa/legend-of-zelda-opening-theme-tab-s74164t0
+#Compass:	4 x 4
+#string	frett	time
+#
+#
+#
+#
+#
+#
+#
+0	0	T1
+#5
+4	6	T2
+4	6	T8
+4	1	T8
+4	1	T8
+4	6	T8
+#6
+4	4	T16
+4	2	T16
+4	4	T8
+4	4	T2
+0	0	T4
+#7
+4	6	T2
+4	6	T8
+4	2	T8
+4	2	T8
+4	6	T8
+#8
+4	5	T16
+4	3	T16
+4	5	T2
+0	0	T4
+0	0	T8
+#9 10 
+0	0	T1
+#15
+4	6	T4
+4	1	T4
+0	0	T8
+4	6	T8
+4	6	T16
+4	8	T16
+4	10	T16
+4	11	T16
+#16
+4	13	T2
+4	13	T4
+4	14	T8
+4	16	T8
+#17
+4	18	T2
+4	18	T8
+0	0	T16
+4	18	T16
+4	18	T8
+4	16	T16
+4	14	T16
+#18
+4	16	T8
+4	16	T16
+4	14	T16
+4	13	T2
+4	13	T4
+#19
+4	11	T8
+4	11	T16
+4	13	T16
+4	14	T2
+4	13	T8
+4	11	T8
+#20
+4	9	T8
+4	9	T16
+4	11	T16
+4	13	T2
+4	11	T8
+4	9	T8
+#21
+4	8	T8
+4	8	T16
+4	10	T16
+4	12	T2
+4	15	T4
+#22
+4	13	T1
+
+
+
+
+

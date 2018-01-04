@@ -1,0 +1,17 @@
+			playNote(A7,T4);
+			playNote(D7,T2);
+			playNote(F7,T4);
+			playNote(A7,T4);
+			playNote(D7,T2);
+			playNote(F7,T4);
+			playNote(A7,T8);
+			playNote(C8,T8);
+			playNote(B7,T4);
+			playNote(G7,T4);
+			playNote(F7,T8);
+			playNote(G7,T8);
+			playNote(A7,T4);
+			playNote(D7,T4);
+			playNote(C7,T8);
+			playNote(E7,T8);
+			playNote(D7,T2);

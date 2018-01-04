@@ -1,0 +1,39 @@
+#Tablature for tabToNotes.py by Alejandro Gallo (cc)
+#Tablature Source:	Alejandro Gallo
+#Compass:	4x4
+#string	frett	time
+#
+#
+#
+#
+#
+#
+#
+3	12	T8
+3	12	T8
+3	14	T4
+3	12	T4
+2	13	T4
+2	12	T4
+#
+3	12	T8
+3	12	T8
+3	14	T4
+3	12	T4
+2	15	T4
+2	13	T4
+#
+3	12	T8
+3	12	T8
+1	15	T4
+1	12	T4
+2	13	T4
+2	12	T4
+3	14	T2
+#
+1	13	T4
+1	13	T4
+1	12	T4
+2	13	T4
+2	15	T4
+2	13	T1

@@ -1,0 +1,61 @@
+#Tablature for tabToNotes.py by Alejandro Gallo (cc)
+#Tablature Source: http://www.songsterr.com/a/wsa/legend-of-zelda-saria-tab-s44204t1	
+#Compass:	4 x 4 
+#string	frett	time
+#
+#
+#
+#
+#
+#
+#1
+2	6	T8
+1	5	T8
+1	7	T4
+2	6	T8
+1	5	T8
+1	7	T4
+#2
+2	6	T8
+1	5	T8
+1	7	T8
+1	12	T8
+1	10	T4
+1	7	T8
+1	8	T8
+#3
+1	7	T8
+2	8	T8
+2	5	T2
+2	5	T8
+3	7	T8
+#4
+2	5	T8
+2	8	T8
+2	5	T4
+0	0	T2
+#5
+2	6	T8
+1	5	T8
+1	7	T4
+2	6	T8
+1	5	T8
+1	7	T4
+#6
+2	6	T8
+1	5	T8
+1	7	T8
+1	12	T8
+1	10	T4
+1	7	T8
+1	8	T8
+#7
+1	12	T8
+1	7	T8
+2	8	T2
+2	8	T8
+1	7	T8
+#8
+2	8	T8
+3	7	T8
+2	5	T2
