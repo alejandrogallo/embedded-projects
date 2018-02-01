@@ -1,1 +1,1 @@
-MCU = attiny45
+MCU = attiny13
