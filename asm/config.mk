@@ -1,0 +1,6 @@
+MCU = attiny45
+MCU = attiny13
+
+
+F_CPU = 1200000UL
+F_CPU = 9600000UL
