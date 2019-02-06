@@ -1,0 +1,181 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ADAFRUIT_NEOPIXEL_H	neopixel/Adafruit_NeoPixel.h	20;"	d
+AVRDUDE	Makefile	/^AVRDUDE = avrdude$/;"	m
+AVRSIZE	Makefile	/^AVRSIZE = avr-size$/;"	m
+Adafruit_NeoPixel	neopixel/Adafruit_NeoPixel.cpp	/^Adafruit_NeoPixel::Adafruit_NeoPixel() :$/;"	f	class:Adafruit_NeoPixel
+Adafruit_NeoPixel	neopixel/Adafruit_NeoPixel.cpp	/^Adafruit_NeoPixel::Adafruit_NeoPixel(uint16_t n, uint8_t p, neoPixelType t) :$/;"	f	class:Adafruit_NeoPixel
+Adafruit_NeoPixel	neopixel/Adafruit_NeoPixel.h	/^class Adafruit_NeoPixel {$/;"	c
+Arduino.h	neopixel/esp8266.c	/^#include <Arduino.h>$/;"	h
+BAUD	Makefile	/^BAUD  ?= 9600UL$/;"	m
+BLESerial	neopixel/examples/StrandtestBLE/BLESerial.cpp	/^BLESerial::BLESerial(unsigned char req, unsigned char rdy, unsigned char rst) :$/;"	f	class:BLESerial
+BLESerial	neopixel/examples/StrandtestBLE/BLESerial.h	/^class BLESerial : public BLEPeripheral, public Stream$/;"	c
+CC	Makefile	/^CC = avr-gcc$/;"	m
+CFLAGS	Makefile	/^CFLAGS = -Os -g -std=gnu99 -Wall$/;"	m
+CPPFLAGS	Makefile	/^CPPFLAGS = -DF_CPU=$(F_CPU) -DBAUD=$(BAUD) -I. -I$(LIBDIR)$/;"	m
+CYCLES_400	neopixel/esp8266.c	32;"	d	file:
+CYCLES_400_T0H	neopixel/esp8266.c	30;"	d	file:
+CYCLES_400_T1H	neopixel/esp8266.c	31;"	d	file:
+CYCLES_800	neopixel/esp8266.c	29;"	d	file:
+CYCLES_800_T0H	neopixel/esp8266.c	27;"	d	file:
+CYCLES_800_T1H	neopixel/esp8266.c	28;"	d	file:
+Color	neopixel/Adafruit_NeoPixel.cpp	/^uint32_t Adafruit_NeoPixel::Color(uint8_t r, uint8_t g, uint8_t b) {$/;"	f	class:Adafruit_NeoPixel
+Color	neopixel/Adafruit_NeoPixel.cpp	/^uint32_t Adafruit_NeoPixel::Color(uint8_t r, uint8_t g, uint8_t b, uint8_t w) {$/;"	f	class:Adafruit_NeoPixel
+DATA_PIN	main.c	19;"	d	file:
+EFUSE	Makefile	/^EFUSE = 0x00$/;"	m
+FUSE_STRING	Makefile	/^FUSE_STRING = -U lfuse:w:$(LFUSE):m -U hfuse:w:$(HFUSE):m -U efuse:w:$(EFUSE):m$/;"	m
+FUSE_STRING	Makefile	/^clear_eeprom_save_fuse: FUSE_STRING = -U hfuse:w:$(HFUSE):m$/;"	m
+FUSE_STRING	Makefile	/^set_default_fuses:  FUSE_STRING = -U lfuse:w:$(LFUSE):m -U hfuse:w:$(HFUSE):m -U efuse:w:$(EFUSE):m$/;"	m
+FUSE_STRING	Makefile	/^set_eeprom_save_fuse: FUSE_STRING = -U hfuse:w:$(HFUSE):m$/;"	m
+FUSE_STRING	Makefile	/^set_fast_fuse: FUSE_STRING = -U lfuse:w:$(LFUSE):m$/;"	m
+F_CPU	Makefile	/^F_CPU ?= 9600000UL$/;"	m
+F_CPU	config.mk	/^F_CPU = 1200000UL$/;"	m
+F_CPU	config.mk	/^F_CPU = 9600000UL$/;"	m
+HEADERS	Makefile	/^HEADERS=$(SOURCES:.c=.h)$/;"	m
+HFUSE	Makefile	/^HFUSE = 0xdf$/;"	m
+HFUSE	Makefile	/^set_eeprom_save_fuse: HFUSE = 0xD7$/;"	m
+LDFLAGS	Makefile	/^LDFLAGS = -Wl,-Map,$(TARGET).map$/;"	m
+LED_NUMBER	main.c	20;"	d	file:
+LFUSE	Makefile	/^LFUSE = 0x62$/;"	m
+LFUSE	Makefile	/^set_fast_fuse: LFUSE = 0xE2$/;"	m
+LIBDIR	Makefile	/^LIBDIR = .\/$/;"	m
+MCU	Makefile	/^MCU   ?= attiny85$/;"	m
+MCU	config.mk	/^MCU = attiny13$/;"	m
+MCU	config.mk	/^MCU = attiny45$/;"	m
+MULTPILIER	main.c	6;"	d	file:
+NEO_BGR	neopixel/Adafruit_NeoPixel.h	59;"	d
+NEO_BGRW	neopixel/Adafruit_NeoPixel.h	89;"	d
+NEO_BGWR	neopixel/Adafruit_NeoPixel.h	88;"	d
+NEO_BRG	neopixel/Adafruit_NeoPixel.h	58;"	d
+NEO_BRGW	neopixel/Adafruit_NeoPixel.h	87;"	d
+NEO_BRWG	neopixel/Adafruit_NeoPixel.h	86;"	d
+NEO_BWGR	neopixel/Adafruit_NeoPixel.h	85;"	d
+NEO_BWRG	neopixel/Adafruit_NeoPixel.h	84;"	d
+NEO_GBR	neopixel/Adafruit_NeoPixel.h	57;"	d
+NEO_GBRW	neopixel/Adafruit_NeoPixel.h	82;"	d
+NEO_GBWR	neopixel/Adafruit_NeoPixel.h	81;"	d
+NEO_GRB	neopixel/Adafruit_NeoPixel.h	56;"	d
+NEO_GRBW	neopixel/Adafruit_NeoPixel.h	80;"	d
+NEO_GRWB	neopixel/Adafruit_NeoPixel.h	79;"	d
+NEO_GWBR	neopixel/Adafruit_NeoPixel.h	78;"	d
+NEO_GWRB	neopixel/Adafruit_NeoPixel.h	77;"	d
+NEO_KHZ400	neopixel/Adafruit_NeoPixel.h	102;"	d
+NEO_KHZ800	neopixel/Adafruit_NeoPixel.h	100;"	d
+NEO_RBG	neopixel/Adafruit_NeoPixel.h	55;"	d
+NEO_RBGW	neopixel/Adafruit_NeoPixel.h	75;"	d
+NEO_RBWG	neopixel/Adafruit_NeoPixel.h	74;"	d
+NEO_RGB	neopixel/Adafruit_NeoPixel.h	54;"	d
+NEO_RGBW	neopixel/Adafruit_NeoPixel.h	73;"	d
+NEO_RGWB	neopixel/Adafruit_NeoPixel.h	72;"	d
+NEO_RWBG	neopixel/Adafruit_NeoPixel.h	71;"	d
+NEO_RWGB	neopixel/Adafruit_NeoPixel.h	70;"	d
+NEO_WBGR	neopixel/Adafruit_NeoPixel.h	68;"	d
+NEO_WBRG	neopixel/Adafruit_NeoPixel.h	67;"	d
+NEO_WGBR	neopixel/Adafruit_NeoPixel.h	66;"	d
+NEO_WGRB	neopixel/Adafruit_NeoPixel.h	65;"	d
+NEO_WRBG	neopixel/Adafruit_NeoPixel.h	64;"	d
+NEO_WRGB	neopixel/Adafruit_NeoPixel.h	63;"	d
+OBJCOPY	Makefile	/^OBJCOPY = avr-objcopy$/;"	m
+OBJDUMP	Makefile	/^OBJDUMP = avr-objdump$/;"	m
+OBJECTS	Makefile	/^OBJECTS=$(SOURCES:.c=.o)$/;"	m
+PROGRAMMER_ARGS	Makefile	/^PROGRAMMER_ARGS =$/;"	m
+PROGRAMMER_ARGS	Makefile	/^flash_109: PROGRAMMER_ARGS = -b 9600 -P \/dev\/ttyUSB0$/;"	m
+PROGRAMMER_ARGS	Makefile	/^flash_arduinoISP: PROGRAMMER_ARGS = -b 19200 -P \/dev\/ttyACM0$/;"	m
+PROGRAMMER_ARGS	Makefile	/^flash_usbasp: PROGRAMMER_ARGS =  # USBasp works with no further arguments$/;"	m
+PROGRAMMER_ARGS	Makefile	/^flash_usbtiny: PROGRAMMER_ARGS =  # USBTiny works with no further arguments$/;"	m
+PROGRAMMER_TYPE	Makefile	/^PROGRAMMER_TYPE ?= usbasp$/;"	m
+PROGRAMMER_TYPE	Makefile	/^flash_109: PROGRAMMER_TYPE = avr109$/;"	m
+PROGRAMMER_TYPE	Makefile	/^flash_arduinoISP: PROGRAMMER_TYPE = avrisp$/;"	m
+PROGRAMMER_TYPE	Makefile	/^flash_usbasp: PROGRAMMER_TYPE = usbasp$/;"	m
+PROGRAMMER_TYPE	Makefile	/^flash_usbtiny: PROGRAMMER_TYPE = usbtiny$/;"	m
+SEND_BLUE	colors.h	29;"	d
+SEND_GREEN	colors.h	57;"	d
+SEND_GREEN_2	colors.h	113;"	d
+SEND_OFF	colors.h	85;"	d
+SEND_RED	colors.h	1;"	d
+SOURCES	Makefile	/^SOURCES=$(wildcard *.c $(LIBDIR)\/*.c)$/;"	m
+T0H	main.c	9;"	d	file:
+T0L	main.c	10;"	d	file:
+T1H	main.c	13;"	d	file:
+T1L	main.c	14;"	d	file:
+TARGET	Makefile	/^TARGET = $(lastword $(subst \/, ,$(CURDIR)))$/;"	m
+TARGET_ARCH	Makefile	/^TARGET_ARCH = -mmcu=$(MCU)$/;"	m
+TRESET	main.c	17;"	d	file:
+_BLE_SERIAL_H_	neopixel/examples/StrandtestBLE/BLESerial.h	2;"	d
+_flushed	neopixel/examples/StrandtestBLE/BLESerial.h	/^    unsigned long _flushed;$/;"	m	class:BLESerial
+_gammaTable	neopixel/Adafruit_NeoPixel.cpp	/^static const uint8_t PROGMEM _gammaTable[256] = {$/;"	v	file:
+_getCycleCount	neopixel/esp8266.c	/^static inline uint32_t _getCycleCount(void) {$/;"	f	file:
+_instance	neopixel/examples/StrandtestBLE/BLESerial.cpp	/^BLESerial* BLESerial::_instance = NULL;$/;"	m	class:BLESerial	file:
+_instance	neopixel/examples/StrandtestBLE/BLESerial.h	/^    static BLESerial* _instance;$/;"	m	class:BLESerial
+_received	neopixel/examples/StrandtestBLE/BLESerial.cpp	/^void BLESerial::_received(BLECentral& \/*central*\/, BLECharacteristic& rxCharacteristic) {$/;"	f	class:BLESerial
+_received	neopixel/examples/StrandtestBLE/BLESerial.cpp	/^void BLESerial::_received(const uint8_t* data, size_t size) {$/;"	f	class:BLESerial
+_rxBuffer	neopixel/examples/StrandtestBLE/BLESerial.h	/^    uint8_t _rxBuffer[BLE_ATTRIBUTE_MAX_VALUE_LENGTH];$/;"	m	class:BLESerial
+_rxCharacteristic	neopixel/examples/StrandtestBLE/BLESerial.h	/^    BLECharacteristic _rxCharacteristic = BLECharacteristic("6E400002-B5A3-F393-E0A9-E50E24DCCA9E", BLEWriteWithoutResponse, BLE_ATTRIBUTE_MAX_VALUE_LENGTH);$/;"	m	class:BLESerial
+_rxHead	neopixel/examples/StrandtestBLE/BLESerial.h	/^    size_t _rxHead;$/;"	m	class:BLESerial
+_rxNameDescriptor	neopixel/examples/StrandtestBLE/BLESerial.h	/^    BLEDescriptor _rxNameDescriptor = BLEDescriptor("2901", "RX - Receive Data (Write)");$/;"	m	class:BLESerial
+_rxTail	neopixel/examples/StrandtestBLE/BLESerial.h	/^    size_t _rxTail;$/;"	m	class:BLESerial
+_sineTable	neopixel/Adafruit_NeoPixel.cpp	/^static const uint8_t PROGMEM _sineTable[256] = {$/;"	v	file:
+_txBuffer	neopixel/examples/StrandtestBLE/BLESerial.h	/^    uint8_t _txBuffer[BLE_ATTRIBUTE_MAX_VALUE_LENGTH];$/;"	m	class:BLESerial
+_txCharacteristic	neopixel/examples/StrandtestBLE/BLESerial.h	/^    BLECharacteristic _txCharacteristic = BLECharacteristic("6E400003-B5A3-F393-E0A9-E50E24DCCA9E", BLENotify, BLE_ATTRIBUTE_MAX_VALUE_LENGTH);$/;"	m	class:BLESerial
+_txCount	neopixel/examples/StrandtestBLE/BLESerial.h	/^    size_t _txCount;$/;"	m	class:BLESerial
+_txNameDescriptor	neopixel/examples/StrandtestBLE/BLESerial.h	/^    BLEDescriptor _txNameDescriptor = BLEDescriptor("2901", "TX - Transfer Data (Notify)");$/;"	m	class:BLESerial
+_uartNameDescriptor	neopixel/examples/StrandtestBLE/BLESerial.h	/^    BLEDescriptor _uartNameDescriptor = BLEDescriptor("2901", "UART");$/;"	m	class:BLESerial
+_uartService	neopixel/examples/StrandtestBLE/BLESerial.h	/^    BLEService _uartService = BLEService("6E400001-B5A3-F393-E0A9-E50E24DCCA9E");$/;"	m	class:BLESerial
+available	neopixel/examples/StrandtestBLE/BLESerial.cpp	/^int BLESerial::available(void) {$/;"	f	class:BLESerial
+avr/io.h	main.c	/^#include <avr\/io.h>$/;"	h
+bOffset	neopixel/Adafruit_NeoPixel.h	/^    bOffset,       \/\/ Index of blue byte$/;"	m	class:Adafruit_NeoPixel
+begin	neopixel/Adafruit_NeoPixel.cpp	/^void Adafruit_NeoPixel::begin(void) {$/;"	f	class:Adafruit_NeoPixel
+begin	neopixel/examples/StrandtestBLE/BLESerial.cpp	/^void BLESerial::begin(...) {$/;"	f	class:BLESerial
+begun	neopixel/Adafruit_NeoPixel.h	/^    begun;         \/\/ true if begin() previously called$/;"	m	class:Adafruit_NeoPixel
+brightness	neopixel/Adafruit_NeoPixel.h	/^    brightness,$/;"	m	class:Adafruit_NeoPixel
+canShow	neopixel/Adafruit_NeoPixel.h	/^    canShow(void) { return (micros() - endTime) >= 300L; }$/;"	f	class:Adafruit_NeoPixel
+clear	neopixel/Adafruit_NeoPixel.cpp	/^void Adafruit_NeoPixel::clear() {$/;"	f	class:Adafruit_NeoPixel
+colors.h	main.c	/^#include "colors.h"$/;"	h
+eagle_soc.h	neopixel/esp8266.c	/^#include <eagle_soc.h>$/;"	h
+end	neopixel/examples/StrandtestBLE/BLESerial.cpp	/^void BLESerial::end() {$/;"	f	class:BLESerial
+endTime	neopixel/Adafruit_NeoPixel.h	/^    endTime;       \/\/ Latch timing reference$/;"	m	class:Adafruit_NeoPixel
+espShow	neopixel/esp8266.c	/^void ICACHE_RAM_ATTR espShow($/;"	f
+fill	neopixel/Adafruit_NeoPixel.cpp	/^void Adafruit_NeoPixel::fill(uint32_t c, uint16_t first, uint16_t count) {$/;"	f	class:Adafruit_NeoPixel
+flush	neopixel/examples/StrandtestBLE/BLESerial.cpp	/^void BLESerial::flush(void) {$/;"	f	class:BLESerial
+gOffset	neopixel/Adafruit_NeoPixel.h	/^    gOffset,       \/\/ Index of green byte$/;"	m	class:Adafruit_NeoPixel
+gamma8	neopixel/Adafruit_NeoPixel.cpp	/^uint8_t Adafruit_NeoPixel::gamma8(uint8_t x) const {$/;"	f	class:Adafruit_NeoPixel
+getBrightness	neopixel/Adafruit_NeoPixel.cpp	/^uint8_t Adafruit_NeoPixel::getBrightness(void) const {$/;"	f	class:Adafruit_NeoPixel
+getPin	neopixel/Adafruit_NeoPixel.h	/^    getPin(void) { return pin; };$/;"	f	class:Adafruit_NeoPixel
+getPixelColor	neopixel/Adafruit_NeoPixel.cpp	/^uint32_t Adafruit_NeoPixel::getPixelColor(uint16_t n) const {$/;"	f	class:Adafruit_NeoPixel
+getPixels	neopixel/Adafruit_NeoPixel.cpp	/^uint8_t *Adafruit_NeoPixel::getPixels(void) const {$/;"	f	class:Adafruit_NeoPixel
+is800KHz	neopixel/Adafruit_NeoPixel.h	/^    is800KHz,      \/\/ ...true if 800 KHz pixels$/;"	m	class:Adafruit_NeoPixel
+main	main.c	/^main(void) {$/;"	f
+neoPixelType	neopixel/Adafruit_NeoPixel.h	/^typedef uint16_t neoPixelType;$/;"	t
+neoPixelType	neopixel/Adafruit_NeoPixel.h	/^typedef uint8_t  neoPixelType;$/;"	t
+numBytes	neopixel/Adafruit_NeoPixel.h	/^    numBytes;      \/\/ Size of 'pixels' buffer below (3 or 4 bytes\/pixel)$/;"	m	class:Adafruit_NeoPixel
+numLEDs	neopixel/Adafruit_NeoPixel.h	/^    numLEDs,       \/\/ Number of RGB LEDs in strip$/;"	m	class:Adafruit_NeoPixel
+numPixels	neopixel/Adafruit_NeoPixel.cpp	/^uint16_t Adafruit_NeoPixel::numPixels(void) const {$/;"	f	class:Adafruit_NeoPixel
+operator bool	neopixel/examples/StrandtestBLE/BLESerial.cpp	/^BLESerial::operator bool() {$/;"	f	class:BLESerial
+peek	neopixel/examples/StrandtestBLE/BLESerial.cpp	/^int BLESerial::peek(void) {$/;"	f	class:BLESerial
+pin	neopixel/Adafruit_NeoPixel.h	/^    pin;           \/\/ Output pin number (-1 if not yet set)$/;"	m	class:Adafruit_NeoPixel
+pinMask	neopixel/Adafruit_NeoPixel.h	/^    pinMask;       \/\/ Output PORT bitmask$/;"	m	class:Adafruit_NeoPixel
+pixels	neopixel/Adafruit_NeoPixel.h	/^   *pixels,        \/\/ Holds LED color values (3 or 4 bytes each)$/;"	m	class:Adafruit_NeoPixel
+poll	neopixel/examples/StrandtestBLE/BLESerial.cpp	/^void BLESerial::poll() {$/;"	f	class:BLESerial
+port	neopixel/Adafruit_NeoPixel.h	/^    *port;         \/\/ Output PORT register$/;"	m	class:Adafruit_NeoPixel
+rOffset	neopixel/Adafruit_NeoPixel.h	/^    rOffset,       \/\/ Index of red byte within each 3- or 4-byte pixel$/;"	m	class:Adafruit_NeoPixel
+read	neopixel/examples/StrandtestBLE/BLESerial.cpp	/^int BLESerial::read(void) {$/;"	f	class:BLESerial
+send_one	main.c	/^send_one() {$/;"	f
+send_rgb	main.c	/^send_rgb(uint8_t r, uint8_t g, uint8_t b) {$/;"	f
+send_zero	main.c	/^send_zero() {$/;"	f
+setBrightness	neopixel/Adafruit_NeoPixel.cpp	/^void Adafruit_NeoPixel::setBrightness(uint8_t b) {$/;"	f	class:Adafruit_NeoPixel
+setPin	neopixel/Adafruit_NeoPixel.cpp	/^void Adafruit_NeoPixel::setPin(uint8_t p) {$/;"	f	class:Adafruit_NeoPixel
+setPixelColor	neopixel/Adafruit_NeoPixel.cpp	/^void Adafruit_NeoPixel::setPixelColor($/;"	f	class:Adafruit_NeoPixel
+setPixelColor	neopixel/Adafruit_NeoPixel.cpp	/^void Adafruit_NeoPixel::setPixelColor(uint16_t n, uint32_t c) {$/;"	f	class:Adafruit_NeoPixel
+show	neopixel/Adafruit_NeoPixel.cpp	/^void Adafruit_NeoPixel::show(void) {$/;"	f	class:Adafruit_NeoPixel
+sine8	neopixel/Adafruit_NeoPixel.cpp	/^uint8_t Adafruit_NeoPixel::sine8(uint8_t x) const {$/;"	f	class:Adafruit_NeoPixel
+updateLength	neopixel/Adafruit_NeoPixel.cpp	/^void Adafruit_NeoPixel::updateLength(uint16_t n) {$/;"	f	class:Adafruit_NeoPixel
+updateType	neopixel/Adafruit_NeoPixel.cpp	/^void Adafruit_NeoPixel::updateType(neoPixelType t) {$/;"	f	class:Adafruit_NeoPixel
+util/delay.h	main.c	/^#include <util\/delay.h>$/;"	h
+util/delay_basic.h	main.c	/^#include <util\/delay_basic.h>$/;"	h
+wOffset	neopixel/Adafruit_NeoPixel.h	/^    wOffset;       \/\/ Index of white byte (same as rOffset if no white)$/;"	m	class:Adafruit_NeoPixel
+write	neopixel/examples/StrandtestBLE/BLESerial.cpp	/^size_t BLESerial::write(uint8_t byte) {$/;"	f	class:BLESerial
+~Adafruit_NeoPixel	neopixel/Adafruit_NeoPixel.cpp	/^Adafruit_NeoPixel::~Adafruit_NeoPixel() {$/;"	f	class:Adafruit_NeoPixel
