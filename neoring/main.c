@@ -1,7 +1,9 @@
 #include <avr/io.h>
+#include <avr/power.h>
 #include <util/delay.h>
 #include <util/delay_basic.h>
 #include "colors.h"
+
 
 // microseconds
 #define T0H  0.35
@@ -13,7 +15,7 @@
 
 // microseconds
 #define TRESET  50
-#define MAIN_DELAY _delay_ms(100);
+#define MAIN_DELAY 
 
 #define DATA_PIN 1<<3
 
@@ -80,6 +82,10 @@ test() {
 int
 main(void) {
 
+#if defined(__AVR_ATtiny45__)
+  if (F_CPU == 8000000) clock_prescale_set(clock_div_1);
+#endif
+
   DDRB |= DATA_PIN;
   PORTB = 0;
 
@@ -87,15 +93,14 @@ main(void) {
     /*CLKPSR=0;*/
 
   /*DDRB |= 1<<2;*/
-  /*for (int i = 0; i<0; i++) {*/
-    /*PORTB ^= 1<<2;*/
-    /*_delay_ms(1000);*/
-    /*PORTB ^= 1<<2;*/
-    /*_delay_ms(1000);*/
-  /*}*/
+  for (int i = 0; i<1; i++) {
+    PORTB ^= DATA_PIN;
+    _delay_us(1e6);
+    PORTB ^= DATA_PIN;
+    _delay_us(1e6);
+  }
 
   while (1){
-    /*_delay_ms(1000);*/
 
 
     /*test();*/
@@ -103,6 +108,7 @@ main(void) {
     /*clear();*/
     /*MAIN_DELAY*/
 
+    _delay_us(TRESET);
 
     send_rgb(255, 0, 0);
     _delay_us(TRESET); MAIN_DELAY
@@ -117,31 +123,31 @@ main(void) {
     send_rgb(200, 0, 0);
     _delay_us(TRESET); MAIN_DELAY
 
-    send_rgb(0, 255, 0);
-    _delay_us(TRESET); MAIN_DELAY
-    send_rgb(0, 200, 0);
-    _delay_us(TRESET); MAIN_DELAY
-    send_rgb(0, 150, 0);
-    _delay_us(TRESET); MAIN_DELAY
-    send_rgb(0, 100, 0);
-    _delay_us(TRESET); MAIN_DELAY
-    send_rgb(0, 150, 0);
-    _delay_us(TRESET); MAIN_DELAY
-    send_rgb(0, 200, 0);
-    _delay_us(TRESET); MAIN_DELAY
+    /*send_rgb(0, 255, 0);*/
+    /*_delay_us(TRESET); MAIN_DELAY*/
+    /*send_rgb(0, 200, 0);*/
+    /*_delay_us(TRESET); MAIN_DELAY*/
+    /*send_rgb(0, 150, 0);*/
+    /*_delay_us(TRESET); MAIN_DELAY*/
+    /*send_rgb(0, 100, 0);*/
+    /*_delay_us(TRESET); MAIN_DELAY*/
+    /*send_rgb(0, 150, 0);*/
+    /*_delay_us(TRESET); MAIN_DELAY*/
+    /*send_rgb(0, 200, 0);*/
+    /*_delay_us(TRESET); MAIN_DELAY*/
 
-    send_rgb(0, 0, 255);
-    _delay_us(TRESET); MAIN_DELAY
-    send_rgb(0, 0, 200);
-    _delay_us(TRESET); MAIN_DELAY
-    send_rgb(0, 0, 150);
-    _delay_us(TRESET); MAIN_DELAY
-    send_rgb(0, 0, 100);
-    _delay_us(TRESET); MAIN_DELAY
-    send_rgb(0, 0, 150);
-    _delay_us(TRESET); MAIN_DELAY
-    send_rgb(0, 0, 200);
-    _delay_us(TRESET); MAIN_DELAY
+    /*send_rgb(0, 0, 255);*/
+    /*_delay_us(TRESET); MAIN_DELAY*/
+    /*send_rgb(0, 0, 200);*/
+    /*_delay_us(TRESET); MAIN_DELAY*/
+    /*send_rgb(0, 0, 150);*/
+    /*_delay_us(TRESET); MAIN_DELAY*/
+    /*send_rgb(0, 0, 100);*/
+    /*_delay_us(TRESET); MAIN_DELAY*/
+    /*send_rgb(0, 0, 150);*/
+    /*_delay_us(TRESET); MAIN_DELAY*/
+    /*send_rgb(0, 0, 200);*/
+    /*_delay_us(TRESET); MAIN_DELAY*/
 
     /*SEND_GREEN*/
     /*_delay_us(TRESET); MAIN_DELAY*/
