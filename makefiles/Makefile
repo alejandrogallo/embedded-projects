@@ -29,8 +29,9 @@ AVRDUDE = avrdude
 #  and in LIBDIR.  If you have any other (sub-)directories with code,
 #  you can add them in to SOURCES below in the wildcard statement.
 SOURCES ?= $(wildcard *.c *.cpp *.cxx)
-OBJECTS = $(SOURCES:.c=.o) $(SOURCES:.cxx=.o) $(SOURCES:.cpp=.o)
-HEADERS = $(SOURCES:.c=.h)
+OBJECTS = $(patsubst %.cpp,%.o,$(SOURCES:.c=.o))
+DEPENDS = $(patsubst %.o,%.d,$(OBJECTS))
+HEADERS = $(wildcard $(SOURCES:.c=.h))
 
 ## Compilation options, type man avr-gcc if you're curious.
 CPPFLAGS = -DF_CPU=$(F_CPU) -DBAUD=$(BAUD) -I. -I$(LIBDIR)
@@ -51,9 +52,28 @@ TARGET_ARCH = -mmcu=$(MCU)
 
 ## Explicit pattern rules:
 ##  To make .o files from .c files
-%.o: %.c $(HEADERS)
+
+define _print_what_is_done
+@echo -e '\x1b[32m$< ==> $@\x1b[0m'
+endef
+
+%.d: %.c
+	$(_print_what_is_done)
+	$(CC) -M $< > $@
+
+%.d: %.cxx
+	$(_print_what_is_done)
+	$(CXX) -M $< > $@
+
+%.o: %.c
+	$(_print_what_is_done)
 	$(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c -o $@ $<;
 
+%.o: %.cxx
+	$(_print_what_is_done)
+	$(CXX) $(CXXFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c -o $@ $<;
+
+$(TARGET).elf: $(eval include $(DEPENDS))
 $(TARGET).elf: $(OBJECTS)
 	$(CC) $(LDFLAGS) $(TARGET_ARCH) $^ $(LDLIBS) -o $@
 
@@ -82,7 +102,7 @@ clean: ## Clean project files
 	-@rm -vf $(wildcard $(TARGET).elf $(TARGET).hex $(TARGET).obj \
 		$(TARGET).o $(TARGET).d $(TARGET).eep $(TARGET).lst \
 		$(TARGET).lss $(TARGET).sym $(TARGET).map $(TARGET)~ \
-		$(TARGET).eeprom)
+		$(TARGET).eeprom $(OBJECTS) $(DEPENDS))
 
 ##########------------------------------------------------------##########
 ##########              Programmer-specific details             ##########
@@ -143,8 +163,8 @@ print-parts: ## Print possible part names with avrdude
 print-programmer: ## Print possible programmer names with avrdude
 	$(AVRDUDE) -c ? 2>&1 | less
 
-tags: ## Create tags with avr headers
-	ctags -R /usr/lib/avr/include/ .
+tags: $(DEPENDS) ## Create tags with avr headers
+	ctags -R `sed "s/.*://; s/[\]\s*$$//g" $<`
 
 help: ## Prints help for targets with comments
 	@awk -F ":.*## *" \
