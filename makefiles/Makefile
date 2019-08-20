@@ -14,21 +14,23 @@ PROGRAMMER_TYPE ?= usbasp
 # extra arguments to avrdude: baud rate, chip type, -F flag, etc.
 PROGRAMMER_ARGS =
 
+## The name of your project (without the .c)
+TARGET ?= $(lastword $(subst /, ,$(CURDIR)))
+
+CXX = avr-g++
 CC = avr-gcc
 OBJCOPY = avr-objcopy
 OBJDUMP = avr-objdump
 AVRSIZE = avr-size
 AVRDUDE = avrdude
 
-## The name of your project (without the .c)
-TARGET ?= $(lastword $(subst /, ,$(CURDIR)))
 
 # Object files: will find all .c/.h files in current directory
 #  and in LIBDIR.  If you have any other (sub-)directories with code,
 #  you can add them in to SOURCES below in the wildcard statement.
-SOURCES?=$(wildcard *.c $(LIBDIR)/*.c **/*.c)
-OBJECTS=$(SOURCES:.c=.o)
-HEADERS=$(SOURCES:.c=.h)
+SOURCES ?= $(wildcard *.c *.cpp *.cxx)
+OBJECTS = $(SOURCES:.c=.o) $(SOURCES:.cxx=.o) $(SOURCES:.cpp=.o)
+HEADERS = $(SOURCES:.c=.h)
 
 ## Compilation options, type man avr-gcc if you're curious.
 CPPFLAGS = -DF_CPU=$(F_CPU) -DBAUD=$(BAUD) -I. -I$(LIBDIR)
@@ -44,18 +46,19 @@ LDFLAGS += -Wl,--gc-sections
 ## LDFLAGS += -Wl,--relax
 ## LDFLAGS += -Wl,-u,vfprintf -lprintf_flt -lm  ## for floating-point printf
 ## LDFLAGS += -Wl,-u,vfprintf -lprintf_min      ## for smaller printf
+
 TARGET_ARCH = -mmcu=$(MCU)
 
 ## Explicit pattern rules:
 ##  To make .o files from .c files
-%.o: %.c $(HEADERS) Makefile
-	 $(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c -o $@ $<;
+%.o: %.c $(HEADERS)
+	$(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c -o $@ $<;
 
 $(TARGET).elf: $(OBJECTS)
 	$(CC) $(LDFLAGS) $(TARGET_ARCH) $^ $(LDLIBS) -o $@
 
 %.hex: %.elf
-	 $(OBJCOPY) -j .text -j .data -O ihex $< $@
+	$(OBJCOPY) -j .text -j .data -O ihex $< $@
 
 %.eeprom: %.elf
 	$(OBJCOPY) -j .eeprom --change-section-lma .eeprom=0 -O ihex $< $@
@@ -153,6 +156,8 @@ define raw_config
 MCU = attiny85
 MCU = attiny45
 MCU = attiny13
+
+PROGRAMMER_TYPE = usbasp
 
 F_CPU = 1200000UL
 F_CPU = 4000000
