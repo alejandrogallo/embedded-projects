@@ -6,10 +6,6 @@ F_CPU ?= 9600000UL
 # Also try BAUD = 19200 or 38400 if you're feeling lucky.
 BAUD  ?= 9600UL
 
-## A directory for common include files and the simple USART library.
-## If you move either the current folder or the Library folder, you'll
-##  need to change this path to match.
-LIBDIR = ./
 PROGRAMMER_TYPE ?= usbasp
 # extra arguments to avrdude: baud rate, chip type, -F flag, etc.
 PROGRAMMER_ARGS =
@@ -19,34 +15,16 @@ TARGET ?= $(lastword $(subst /, ,$(CURDIR)))
 
 CXX = avr-g++
 CC = avr-gcc
+AS = avr-gcc -xassembler-with-cpp
 OBJCOPY = avr-objcopy
 OBJDUMP = avr-objdump
 AVRSIZE = avr-size
 AVRDUDE = avrdude
 
-
-# Object files: will find all .c/.h files in current directory
-#  and in LIBDIR.  If you have any other (sub-)directories with code,
-#  you can add them in to SOURCES below in the wildcard statement.
-SOURCES ?= $(wildcard *.c *.cpp *.cxx)
-OBJECTS = $(patsubst %.cpp,%.o,$(SOURCES:.c=.o))
+SOURCES ?= $(wildcard *.asm *.c *.cpp *.cxx)
+HEADERS ?= $(wildcard *.h *.hpp *.hxx)
+OBJECTS = $(patsubst %.asm,%.o,$(patsubst %.cpp,%.o,$(SOURCES:.c=.o)))
 DEPENDS = $(patsubst %.o,%.d,$(OBJECTS))
-HEADERS = $(wildcard $(SOURCES:.c=.h))
-
-## Compilation options, type man avr-gcc if you're curious.
-CPPFLAGS = -DF_CPU=$(F_CPU) -DBAUD=$(BAUD) -I. -I$(LIBDIR)
-CFLAGS += -Os -g -std=gnu99 -Wall
-## Use short (8-bit) data types
-CFLAGS += -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums
-## Splits up object files per function
-CFLAGS += -ffunction-sections -fdata-sections
-LDFLAGS = -Wl,-Map,$(TARGET).map
-## Optional, but often ends up with smaller code
-LDFLAGS += -Wl,--gc-sections
-## Relax shrinks code even more, but makes disassembly messy
-## LDFLAGS += -Wl,--relax
-## LDFLAGS += -Wl,-u,vfprintf -lprintf_flt -lm  ## for floating-point printf
-## LDFLAGS += -Wl,-u,vfprintf -lprintf_min      ## for smaller printf
 
 TARGET_ARCH = -mmcu=$(MCU)
 
@@ -65,6 +43,10 @@ endef
 	$(_print_what_is_done)
 	$(CXX) -M $< > $@
 
+%.d: %.asm
+	$(_print_what_is_done)
+	$(AS) -M $< > $@
+
 %.o: %.c
 	$(_print_what_is_done)
 	$(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c -o $@ $<;
@@ -72,6 +54,10 @@ endef
 %.o: %.cxx
 	$(_print_what_is_done)
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c -o $@ $<;
+
+%.o: %.asm
+	$(_print_what_is_done)
+	$(AS) $(ASMFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c -o $@ $<;
 
 $(TARGET).elf: $(eval include $(DEPENDS))
 $(TARGET).elf: $(OBJECTS)
@@ -135,7 +121,7 @@ fuses: ## Set fuses
 	$(AVRDUDE) -c $(PROGRAMMER_TYPE) -p $(MCU) $(PROGRAMMER_ARGS) $(FUSE_STRING)
 
 fuses_show: ## Show fuses
-	$(AVRDUDE) -c $(PROGRAMMER_TYPE) -p $(MCU) $(PROGRAMMER_ARGS) -nv
+	$(AVRDUDE) -c $(PROGRAMMER_TYPE) -p $(MCU) $(PROGRAMMER_ARGS) -nv 2>&1
 
 ## Called with no extra definitions, sets to defaults
 fuses_set_default: FUSE_STRING=-U lfuse:w:$(LFUSE):m -U hfuse:w:$(HFUSE):m -U efuse:w:$(EFUSE):m
@@ -184,10 +170,26 @@ F_CPU = 4000000
 F_CPU = 9600000L
 F_CPU = 8000000L
 
-CFLAGS += -I../ -L../lib/
-
 # Project name
 TARGET = main
 
-SOURCES = main.c ../lib/light_ws2812.c
+## Compilation options, type man avr-gcc if you're curious.
+CPPFLAGS = -DF_CPU=$(F_CPU) -DBAUD=$(BAUD) -I.
+CFLAGS += -Os -g -std=gnu99 -Wall
+## Use short (8-bit) data types
+CFLAGS += -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums
+## Splits up object files per function
+CFLAGS += -ffunction-sections -fdata-sections
+LDFLAGS = -Wl,-Map,$(TARGET).map
+## Optional, but often ends up with smaller code
+LDFLAGS += -Wl,--gc-sections
+## Relax shrinks code even more, but makes disassembly messy
+## LDFLAGS += -Wl,--relax
+## LDFLAGS += -Wl,-u,vfprintf -lprintf_flt -lm  ## for floating-point printf
+## LDFLAGS += -Wl,-u,vfprintf -lprintf_min      ## for smaller printf
+
+# Assembly flags
+#ASMFLAGS ?= $(CFLAGS)
+# c++ flags
+#CXXFLAGS ?= $(CFLAGS)
 endef
