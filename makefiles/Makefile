@@ -10,7 +10,7 @@ PROGRAMMER_TYPE ?= usbasp
 # extra arguments to avrdude: baud rate, chip type, -F flag, etc.
 PROGRAMMER_ARGS =
 
-## The name of your project (without the .c)
+## The name of your project
 TARGET ?= $(lastword $(subst /, ,$(CURDIR)))
 
 CXX = avr-g++
@@ -174,13 +174,13 @@ F_CPU = 8000000L
 TARGET = main
 
 ## Compilation options, type man avr-gcc if you're curious.
-CPPFLAGS = -DF_CPU=$(F_CPU) -DBAUD=$(BAUD) -I.
+CPPFLAGS = -DF_CPU=$$(F_CPU) -DBAUD=$$(BAUD) -I.
 CFLAGS += -Os -g -std=gnu99 -Wall
 ## Use short (8-bit) data types
 CFLAGS += -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums
 ## Splits up object files per function
 CFLAGS += -ffunction-sections -fdata-sections
-LDFLAGS = -Wl,-Map,$(TARGET).map
+LDFLAGS = -Wl,-Map,$$(TARGET).map
 ## Optional, but often ends up with smaller code
 LDFLAGS += -Wl,--gc-sections
 ## Relax shrinks code even more, but makes disassembly messy
@@ -189,7 +189,7 @@ LDFLAGS += -Wl,--gc-sections
 ## LDFLAGS += -Wl,-u,vfprintf -lprintf_min      ## for smaller printf
 
 # Assembly flags
-#ASMFLAGS ?= $(CFLAGS)
+#ASMFLAGS ?= $$(CFLAGS)
 # c++ flags
-#CXXFLAGS ?= $(CFLAGS)
+#CXXFLAGS ?= $$(CFLAGS)
 endef
