@@ -1,0 +1,6 @@
+*.hex
+*.map
+*.d
+*.elf
+*.vim-run
+tags
