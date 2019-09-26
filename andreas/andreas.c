@@ -6,14 +6,21 @@
 #include <util/delay.h>
 #include "alphabet.h"
 
-#define CLK_HIGH()  PORTB |= (1<<PB0)
-#define CLK_LOW()   PORTB &= ~(1<<PB0)
-#define CS_HIGH()   PORTB |= (1<<PB1)
-#define CS_LOW()    PORTB &= ~(1<<PB1)
-#define DATA_HIGH() PORTB |= (1<<PB2)
-#define DATA_LOW()  PORTB &= ~(1<<PB2)
-#define INIT_PORT() DDRB |= (1<<PB0) | (1<<PB1) | (1<<PB2)
+#define MATRIX_DDR DDRB
+#define MATRIX_PORT PORTB
+#define DIN PB2
+#define CS PB3
+#define CLK PB4
+#define T_SWEEP 1e3
+#define T_CLK 10
 
+#define CLK_HIGH()  MATRIX_PORT |= (1<<CLK)
+#define CLK_LOW()   MATRIX_PORT &= ~(1<<CLK)
+#define CS_HIGH()   MATRIX_PORT |= (1<<CS)
+#define CS_LOW()    MATRIX_PORT &= ~(1<<CS)
+#define DATA_HIGH() MATRIX_PORT |= (1<<DIN)
+#define DATA_LOW()  MATRIX_PORT &= ~(1<<DIN)
+#define INIT_PORT() MATRIX_DDR |= (1<<CLK) | (1<<CS) | (1<<DIN)
 #define ON 1
 #define OFF 0
 #define TOGGLE 2
