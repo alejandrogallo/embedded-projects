@@ -6,8 +6,9 @@
 #define ws2812_pin  2
 #define LED_LENGTH 16
 #define ws2812_resettime  50
-#define DELAY_1 8000
+#define DELAY_1 200000
 #define LAPS 10
+#define CHAIN_LENGTH 13
 
 #include "lib/light_ws2812.h"
 
@@ -25,11 +26,21 @@ struct cRGB led[LED_LENGTH];
 
 int main(void)
 {
-  uint8_t i, lap;
-  const uint8_t colors[3][3] = {
-    {20, 128, 21},
-    {244, 12, 10},
-    {123, 123, 0}
+  uint8_t i, lap, j;
+  const uint8_t colors[CHAIN_LENGTH][3] = {
+    {255, 0, 0},
+    {0, 255, 0},
+    {10, 21, 255},
+    {239, 255, 13},
+    {128, 10, 82},
+    {0, 0, 255},
+    {12, 234, 255},
+    {123, 2, 255},
+    {52, 2, 23},
+    {234, 23, 24},
+    {10, 23, 24},
+    {10, 0, 24},
+    {0, 0, 24}
   };
 
   clear(led, LED_LENGTH);
@@ -48,9 +59,9 @@ int main(void)
         led[i-1].r=0;
         led[i-1].g=0;
         led[i-1].b=0;
-        led[i].r=colors[i%3][0];
-        led[i].g=colors[i%3][1];
-        led[i].b=colors[i%3][2];
+        led[i].r=colors[i%CHAIN_LENGTH][0];
+        led[i].g=colors[i%CHAIN_LENGTH][1];
+        led[i].b=colors[i%CHAIN_LENGTH][2];
         ws2812_setleds(led,16);
         _delay_us(DELAY_1);
 
@@ -63,29 +74,29 @@ int main(void)
 
     clear(led, LED_LENGTH);
 
-    for (lap = 0; lap < 255; ++lap) {
+    for (j=0; j<CHAIN_LENGTH -1; j++){
 
+      for (lap = 0; lap < 20; ++lap) {
 
-      for (i = 0; i < LED_LENGTH+1; ++i) {
+        for (int k=0; k<10; k++){
+        for (i = 0; i < LED_LENGTH+1; ++i) {
 
-        led[i].r = (2*lap) % 255;
-        led[i].g = (255 - (1*lap)%255);
-        led[i].b = 0;
+          led[i].r = (colors[j+1][0] - colors[j][0])/20 * lap + colors[j][0];
+          led[i].g = (colors[j+1][1] - colors[j][1])/20 * lap + colors[j][1];
+          led[i].b = (colors[j+1][2] - colors[j][2])/20 * lap + colors[j][2];
 
-        /*led[i].r = led[i-1].r;*/
-        /*led[i].g = led[i-1].g;*/
-        /*led[i].b = led[i-1].b;*/
+          led[i-1].r = 0;
+          led[i-1].g = 0;
+          led[i-1].b = 0;
 
-        led[i-1].r = 0;
-        led[i-1].g = 0;
-        led[i-1].b = 0;
+          ws2812_setleds(led,16);
+          _delay_us(1);
 
-        ws2812_setleds(led,16);
-        _delay_us(1);
+        }
+        }
+
 
       }
-
-
     }
 
   }
