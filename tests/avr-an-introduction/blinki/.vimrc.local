@@ -1,0 +1,1 @@
+nnoremap K :exec("!man -P'less -p'".expand("<cword>")." avr-assembly-glossary")<cr>
