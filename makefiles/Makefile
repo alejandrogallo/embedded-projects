@@ -28,8 +28,9 @@ DEPENDS = $(patsubst %.o,%.d,$(OBJECTS))
 
 TARGET_ARCH = -mmcu=$(MCU)
 
+all: $(TARGET).hex ## Hex file
+
 ## Explicit pattern rules:
-##  To make .o files from .c files
 
 define _print_what_is_done
 @echo -e '\x1b[32m$< ==> $@\x1b[0m'
@@ -73,8 +74,6 @@ $(TARGET).elf: $(OBJECTS)
 	$(OBJDUMP) -S $< > $@
 
 .PHONY: all disassemble disasm eeprom size clean squeaky_clean flash fuses
-
-all: $(TARGET).hex ## Hex file
 
 # This creates approximate assembly-language equivalent of your code.
 # Useful for debugging time-sensitive bits,
@@ -159,10 +158,10 @@ help: ## Prints help for targets with comments
 	column -t -s "::::"
 
 define raw_config
-MCU = attiny85
-MCU = attiny45
+# available parts: avrdude -p?
 MCU = attiny13
 
+# available programmers: avrdude -c?
 PROGRAMMER_TYPE = usbasp
 
 F_CPU = 1200000UL

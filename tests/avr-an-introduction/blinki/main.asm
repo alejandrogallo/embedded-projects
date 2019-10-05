@@ -5,11 +5,16 @@
 
 #define temp r16
 
-;.global init
-;rjmp init
+.global setup
+setup:
+in r16, TCCR0
+ldi r16, 1
+out TCCR0A, r16
+rjmp main
 
 .global main
 main:
+sei
 ldi r16, 0b11111
 in r17, DDRB
 or r17, r16
@@ -32,23 +37,10 @@ pop r17
 pop r16
 rjmp main
 
+TIM0_COMPA:
+in r16, PORTB
+andi r16, 0x00
 
-
-/*
-init:
-  ldi temp, (1<<PORTB0)
-  in r17, DDRB
-  or temp, r17
-  out DDRB, temp
-#warning PORTB is not
-  ;sbi PORTB, 0
-  rjmp main
-
-.global main
-main:
-  ldi temp, (1<<PORTB0)
-  in r17, PORTB
-  eor temp, r17
-  out PORTB, temp
-  rjmp main
-*/
+TIM0_COMPB:
+in r16, PORTB
+andi r16, 0x00
