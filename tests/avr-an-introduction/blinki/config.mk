@@ -12,6 +12,8 @@ F_CPU = 8000000L
 # Project name
 TARGET = main
 
+SOURCES = main.asm
+
 ## Compilation options, type man avr-gcc if you're curious.
 CPPFLAGS = -DF_CPU=$(F_CPU) -DBAUD=$(BAUD) -I.
 CFLAGS += -Os -g -std=gnu99 -Wall
