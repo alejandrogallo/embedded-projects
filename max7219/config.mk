@@ -1,6 +1,6 @@
 MCU = attiny45
-MCU = attiny13
 MCU = attiny85
+MCU = attiny13
 
 PROGRAMMER_TYPE = usbasp
 
@@ -17,7 +17,7 @@ TARGET = main
 
 ## Compilation options, type man avr-gcc if you're curious.
 CPPFLAGS = -DF_CPU=$(F_CPU) -DBAUD=$(BAUD) -I.
-CFLAGS += -Os -g -std=gnu99 -Wall
+CFLAGS += -Os -g -std=gnu99 -Wall --all-warnings -pedantic
 ## Use short (8-bit) data types
 CFLAGS += -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums
 ## Splits up object files per function
