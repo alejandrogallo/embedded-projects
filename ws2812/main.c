@@ -7,7 +7,7 @@
 
 #define MAIN_DELAY 10e3
 #define SMALL_DELAY 500
-#define NLIGHTS 20
+#define NLIGHTS 3
 
 void
 interpolate_colors(struct Led led[], uint8_t length) {

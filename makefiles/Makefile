@@ -153,7 +153,7 @@ tags: $(DEPENDS) ## Create tags with avr headers
 
 help: ## Prints help for targets with comments
 	@awk -F ":.*## *" \
-		'/^\S.*:/{if ($$2) print "\x1b[32m",$$1,"\x1b[0m","::::",$$2 }' \
+		'/^\S.*:/{if ($$2) print "\x1b[32m",$$1,"\x1b[0m","::::\x1b[35m",$$2,"\x1b[0m" }' \
 		$(MAKEFILE_LIST) | \
 	column -t -s "::::"
 
@@ -163,6 +163,8 @@ MCU = attiny13
 
 # available programmers: avrdude -c?
 PROGRAMMER_TYPE = usbasp
+
+BAUD  = 9600UL
 
 F_CPU = 1200000UL
 F_CPU = 4000000
@@ -174,7 +176,7 @@ TARGET = main
 
 ## Compilation options, type man avr-gcc if you're curious.
 CPPFLAGS = -DF_CPU=$$(F_CPU) -DBAUD=$$(BAUD) -I.
-CFLAGS += -Os -g -std=gnu99 -Wall
+CFLAGS += -Os -std=gnu99 -Wall
 ## Use short (8-bit) data types
 CFLAGS += -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums
 ## Splits up object files per function
