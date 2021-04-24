@@ -119,24 +119,24 @@ FUSE_STRING = -U lfuse:w:$(LFUSE):m -U hfuse:w:$(HFUSE):m -U efuse:w:$(EFUSE):m
 fuses: ## Set fuses
 	$(AVRDUDE) -c $(PROGRAMMER_TYPE) -p $(MCU) $(PROGRAMMER_ARGS) $(FUSE_STRING)
 
-fuses_show: ## Show fuses
+fuses-show: ## Show fuses
 	$(AVRDUDE) -c $(PROGRAMMER_TYPE) -p $(MCU) $(PROGRAMMER_ARGS) -nv 2>&1
 
 ## Called with no extra definitions, sets to defaults
-fuses_set_default: FUSE_STRING=-U lfuse:w:$(LFUSE):m -U hfuse:w:$(HFUSE):m -U efuse:w:$(EFUSE):m
-fuses_set_default: fuses ## Set default fuses
+fuses-set_default: FUSE_STRING=-U lfuse:w:$(LFUSE):m -U hfuse:w:$(HFUSE):m -U efuse:w:$(EFUSE):m
+fuses-set_default: fuses ## Set default fuses
 
 ## Note: can also be set in firmware for modern chips
-fuses_set_fast: LFUSE = 0xE2
-fuses_set_fast: FUSE_STRING = -U lfuse:w:$(LFUSE):m
-fuses_set_fast: fuses ## Set the fuse byte for full-speed mode
+fuses-set_fast: LFUSE = 0xE2
+fuses-set_fast: FUSE_STRING = -U lfuse:w:$(LFUSE):m
+fuses-set_fast: fuses ## Set the fuse byte for full-speed mode
 
-fuses_set_eeprom_save: HFUSE = 0xD7
-fuses_set_eeprom_save: FUSE_STRING = -U hfuse:w:$(HFUSE):m
-fuses_set_eeprom_save: fuses ## Set the EESAVE fuse byte to preserve EEPROM across flashes
+fuses-set_eeprom_save: HFUSE = 0xD7
+fuses-set_eeprom_save: FUSE_STRING = -U hfuse:w:$(HFUSE):m
+fuses-set_eeprom_save: fuses ## Set the EESAVE fuse byte to preserve EEPROM across flashes
 
-fuses_clear_eeprom_save: FUSE_STRING = -U hfuse:w:$(HFUSE):m
-fuses_clear_eeprom_save: fuses ## Clear the EESAVE fuse byte
+fuses-clear_eeprom_save: FUSE_STRING = -U hfuse:w:$(HFUSE):m
+fuses-clear_eeprom_save: fuses ## Clear the EESAVE fuse byte
 
 config.mk: ## Create a test config.mk file
 	@echo "Creating a default $@"

@@ -27,6 +27,7 @@ main(void) {
     PORTB = (1<<5);
     _delay_ms(DELAY);
     PORTB = 0;
+    _delay_ms(DELAY);
   }
   return 0;
 }
