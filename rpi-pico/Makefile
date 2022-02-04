@@ -17,4 +17,7 @@ tags TAGS: $(PICO_FOLDER)
 	ctags $(PICO_FOLDER)/src
 	ctags -e $(PICO_FOLDER)/src
 
-.PHONY: pico-sdk clean
+flash:
+	./flash.sh
+
+.PHONY: pico-sdk clean flash
