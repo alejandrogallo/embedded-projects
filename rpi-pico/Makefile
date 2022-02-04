@@ -13,4 +13,8 @@ clean:
 clean-all: clean
 	rm -rf $(PICO_FOLDER)
 
+tags TAGS: $(PICO_FOLDER)
+	ctags $(PICO_FOLDER)/src
+	ctags -e $(PICO_FOLDER)/src
+
 .PHONY: pico-sdk clean
