@@ -14,8 +14,8 @@ clean-all: clean
 	rm -rf $(PICO_FOLDER)
 
 tags TAGS: $(PICO_FOLDER)
-	ctags $(PICO_FOLDER)/src
-	ctags -e $(PICO_FOLDER)/src
+	ctags $(PICO_FOLDER)/src $(PICO_FOLDER)/lib/tinyusb/src
+	ctags -e $(PICO_FOLDER)/src $(PICO_FOLDER)/lib/tinyusb/src
 
 flash:
 	./flash.sh

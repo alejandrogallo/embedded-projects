@@ -6,7 +6,8 @@ device=/dev/disk/by-label/RPI-RP2
 folder=""
 
 echo "Mounting: $device"
-udisksctl mount --block-device $device
+udisksctl mount --block-device $device ||
+{ udisksctl info --block-device $device | grep MountPoints; }
 
 select flash_file in `find build -name '*.uf2'`; do
 
