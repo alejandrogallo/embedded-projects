@@ -38,11 +38,11 @@ endef
 
 %.d: %.c
 	$(_print_what_is_done)
-	$(CC) -M $< > $@
+	$(CC) $(CPPFLAGS) -M $< > $@
 
 %.d: %.cxx
 	$(_print_what_is_done)
-	$(CXX) -M $< > $@
+	$(CXX) $(CPPFLAGS) -M $< > $@
 
 %.d: %.asm
 	$(_print_what_is_done)

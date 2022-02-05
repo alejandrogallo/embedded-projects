@@ -17,8 +17,9 @@
 */
 
 #include <avr/io.h>
-#include "USART.h"
 #include <util/setbaud.h>
+
+#include "USART.h"
 
 void initUSART(void) {                                /* requires BAUD */
   UBRR0H = UBRRH_VALUE;                        /* defined in setbaud.h */
