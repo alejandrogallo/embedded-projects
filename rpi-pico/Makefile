@@ -1,6 +1,11 @@
 PICO_SDK_GIT = https://github.com/raspberrypi/pico-sdk
 PICO_FOLDER ?= extern/pico-sdk
 
+all:
+	bash build.sh
+
+extern/tinyusb:
+	git clone https://github.com/hathach/tinyusb $@
 
 pico-sdk: $(PICO_FOLDER)
 $(PICO_FOLDER):

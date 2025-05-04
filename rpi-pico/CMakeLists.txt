@@ -13,6 +13,8 @@ endif()
 # initialize the Raspberry Pi Pico SDK
 pico_sdk_init()
 
+# include(${CMAKE_CURRENT_SOURCE_DIR}/extern/tinyus/hw/bsp/family_support.cmake)
+include(PicoLED/PicoLed.cmake)
 # rest of your project
 macro(example_auto_set_url TARGET)
     file(RELATIVE_PATH URL_REL_PATH "${PICO_EXAMPLES_PATH}" "${CMAKE_CURRENT_LIST_DIR}")
@@ -33,4 +35,5 @@ add_compile_options(
 
 
 add_subdirectory(blink)
-add_subdirectory(mouse)
+# add_subdirectory(mouse) # TODO: broken
+add_subdirectory(led-1)

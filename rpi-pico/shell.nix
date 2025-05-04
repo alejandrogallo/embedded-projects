@@ -1,15 +1,14 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <nixpkgs> { } }:
 
-pkgs.mkShell rec {
+let pico-sdk = pkgs.pico-sdk.override { withSubmodules = true; };
 
-  buildInputs = with pkgs; [
-    gcc-arm-embedded
-    cmake
-    python3
-  ];
+in pkgs.mkShell rec {
+
+  buildInputs = with pkgs; [ gcc-arm-embedded cmake python3 picotool ];
 
   shellHook = ''
-  export PICO_SDK_PATH="$PWD/extern/pico-sdk/"
+    # export PICO_SDK_PATH="$PWD/extern/pico-sdk/"
+    export PICO_SDK_PATH="${pico-sdk}/lib/pico-sdk"
   '';
 
 }

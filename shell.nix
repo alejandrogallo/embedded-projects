@@ -39,4 +39,4 @@ mkShell {
 
     EOF
   '';
-}
+} // (import ./rpi-pico/shell.nix {})
