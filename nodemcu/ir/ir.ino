@@ -92,6 +92,7 @@ void setup() {
     Serial.print("Open: http://");
     Serial.println(WiFi.localIP());
 
+
     server.on("/", []() {
         server.send(
             200,
@@ -125,8 +126,14 @@ void setup() {
 
     Serial.println("HTTP server started");
 
-    Serial.println("Previously stored:");
-    Serial.println(loadValue());
+    FSInfo info;
+    LittleFS.info(info);
+
+    Serial.printf("LittleFS total: %u bytes\n", info.totalBytes);
+    Serial.printf("LittleFS used:  %u bytes\n", info.usedBytes);
+  Serial.printf("Flash chip size: %u bytes\n", ESP.getFlashChipSize());
+  Serial.printf("Real flash size: %u bytes\n", ESP.getFlashChipRealSize());
+
 }
 
 void loop() {
