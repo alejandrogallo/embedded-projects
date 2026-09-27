@@ -16,7 +16,7 @@ in
 mkShell {
   name = "avr-stuff";
 
-  buildInputs = [ git ]
+  buildInputs = [ git arduino arduino-cli ]
     ++ [
       pkgsCross.avr.buildPackages.binutils
       pkgsCross.avr.buildPackages.gcc8
