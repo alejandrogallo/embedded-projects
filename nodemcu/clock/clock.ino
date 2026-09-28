@@ -41,7 +41,7 @@ void setup() {
 
     leds.begin();
     // Red: R, G, B
-    leds.setBrightness(20);
+    leds.setBrightness(5);
     leds.show();
 
     Serial.printf("Flash chip size: %u bytes\n", ESP.getFlashChipSize());
@@ -52,12 +52,12 @@ void setup() {
 
 
 float gaussian24(int i, int center) {
-    int d = abs(i - center);
-    d = min(d, 24 - d);  // circular distance
+  int d = abs(i - center);
+  d = min(d, 24 - d);  // circular distance
 
-    const float sigma = 1.5;
+  const float sigma = 1.5;
 
-    return exp(-(d * d) / (2.0 * sigma * sigma));
+  return exp(-(d * d) / (2.0 * sigma * sigma));
 }
 
 void gaussianLeds(int center, uint8_t r, uint8_t g, uint8_t b) {
